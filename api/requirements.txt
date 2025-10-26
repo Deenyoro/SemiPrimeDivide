@@ -14,5 +14,5 @@ primesieve==2.3.2
 passagemath-libecm==10.6.31rc1
 sympy==1.14.0
 numexpr==2.14.1
-python-dotenv==1.1.1
+python-dotenv==1.2.1
 psycopg2-binary==2.9.9
