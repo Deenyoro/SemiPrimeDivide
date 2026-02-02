@@ -21,7 +21,7 @@ permissions:
 jobs:
   deploy:
     name: Deploy to ${{ github.event.inputs.environment || 'production' }}
-    runs-on: ubuntu-latest
+    runs-on: ag-runners
     environment: ${{ github.event.inputs.environment || 'production' }}
 
     steps:
@@ -228,7 +228,7 @@ jobs:
 
   deployment-summary:
     name: Deployment Summary
-    runs-on: ubuntu-latest
+    runs-on: ag-runners
     needs: [deploy]
     if: always()
 

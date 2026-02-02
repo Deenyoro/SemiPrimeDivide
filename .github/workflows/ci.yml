@@ -19,7 +19,7 @@ env:
 jobs:
   frontend-test:
     name: Frontend Tests
-    runs-on: ubuntu-latest
+    runs-on: ag-runners
     defaults:
       run:
         working-directory: ./frontend
@@ -56,7 +56,7 @@ jobs:
 
   api-test:
     name: Backend API Tests
-    runs-on: ubuntu-latest
+    runs-on: ag-runners
 
     services:
       postgres:
@@ -154,7 +154,7 @@ jobs:
 
   docker-build:
     name: Docker Build - ${{ matrix.service }}
-    runs-on: ubuntu-latest
+    runs-on: ag-runners
     needs: [frontend-test, api-test]
 
     strategy:
@@ -197,7 +197,7 @@ jobs:
 
   integration-test:
     name: Integration Tests
-    runs-on: ubuntu-latest
+    runs-on: ag-runners
     needs: [frontend-test, api-test, docker-build]
 
     steps:
@@ -268,7 +268,7 @@ jobs:
 
   test-summary:
     name: Test Summary
-    runs-on: ubuntu-latest
+    runs-on: ag-runners
     needs: [frontend-test, api-test, docker-build, integration-test]
     if: always()
 
