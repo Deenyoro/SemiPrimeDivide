@@ -20,7 +20,7 @@ permissions:
 jobs:
   trivy-scan:
     name: Trivy Vulnerability Scan
-    runs-on: ag-runners
+    runs-on: semiprimedivide
 
     steps:
       - name: Checkout code
@@ -53,7 +53,7 @@ jobs:
 
   secret-detection:
     name: Secret Detection
-    runs-on: ag-runners
+    runs-on: semiprimedivide
 
     steps:
       - name: Checkout code
@@ -106,7 +106,7 @@ jobs:
 
   dependency-scan:
     name: Dependency Vulnerability Scan
-    runs-on: ag-runners
+    runs-on: semiprimedivide
 
     steps:
       - name: Checkout code
@@ -164,7 +164,7 @@ jobs:
 
   codeql-analysis:
     name: CodeQL Analysis
-    runs-on: ag-runners
+    runs-on: semiprimedivide
     continue-on-error: true
 
     strategy:
@@ -191,7 +191,7 @@ jobs:
 
   docker-scan:
     name: Docker Image Security Scan
-    runs-on: ag-runners
+    runs-on: semiprimedivide
     if: github.event_name != 'pull_request'
 
     strategy:
@@ -238,7 +238,7 @@ jobs:
 
   security-summary:
     name: Security Summary
-    runs-on: ag-runners
+    runs-on: semiprimedivide
     needs: [trivy-scan, secret-detection, dependency-scan, codeql-analysis]
     if: always()
 

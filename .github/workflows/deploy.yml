@@ -21,7 +21,7 @@ permissions:
 jobs:
   deploy:
     name: Deploy to ${{ github.event.inputs.environment || 'production' }}
-    runs-on: ag-runners
+    runs-on: semiprimedivide
     environment: ${{ github.event.inputs.environment || 'production' }}
 
     steps:
@@ -228,7 +228,7 @@ jobs:
 
   deployment-summary:
     name: Deployment Summary
-    runs-on: ag-runners
+    runs-on: semiprimedivide
     needs: [deploy]
     if: always()
 
